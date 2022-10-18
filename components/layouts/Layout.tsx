@@ -1,11 +1,12 @@
 import Head from "next/head";
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import { Navbar } from "../ui";
 interface LayoutProps {
     title?: string;
+    /* children?: React.ReactNode; */
 }
 
-export const Layout: FC<LayoutProps> = ({ children, title }) => {
+export const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({ children, title }) => {
   return (
     <>
     <Head>

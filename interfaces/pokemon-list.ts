@@ -13,6 +13,8 @@ export interface SmallPokemon {
     img?: string;
 } 
 
+  
+
 // Otra forma de crear las interfaces es con la herramienta de paste JSON as Code
 // Copias es JSON en el clipboard y despues presionas Ctrl + Shift + P y buscas Paste JSON as Code
 // Colocas el nombre de la interface y listo
