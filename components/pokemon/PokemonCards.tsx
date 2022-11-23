@@ -1,4 +1,5 @@
 import { Card, Col, Row, Button, Text, Grid } from "@nextui-org/react";
+import { useRouter } from "next/router";
 import { PropsWithChildren } from "react";
 import { SmallPokemon } from "../../interfaces/index";
 
@@ -8,13 +9,24 @@ export interface Props {
 
 
 export const PokemonCards: React.FC<PropsWithChildren<Props>> = ({ pokemon }) => {
+
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push(`/pokemon/${pokemon.id}`);
+    console.log("clicked");
+  };
   return (
 
     
 
             <Grid xs={5} sm={3} md={2} xl={1} key={pokemon.id} >
 
-              <Card css={{ w: "100%", h: "350px" }}>
+              <Card
+                isHoverable 
+                css={{ w: "100%", h: "350px" }} 
+                onClick={ onClick }
+                >
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                   <Col>
                     <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -68,14 +80,14 @@ export const PokemonCards: React.FC<PropsWithChildren<Props>> = ({ pokemon }) =>
                     </Col> */}
                     <Col>
                       <Row justify="center">
-                        <Button flat auto rounded color="secondary">
+                        <Button flat auto rounded color="secondary" onClick={ onClick }>
                           <Text
                             css={{ color: "inherit" }}
                             size={12}
                             weight="bold"
                             transform="uppercase"
                           >
-                            Add Favorites
+                            Details
                           </Text>
                         </Button>
                       </Row>

@@ -26,7 +26,7 @@ const Home: NextPage<Props> = ({ pokemons }) => {
         {
           pokemons.map((pokemon: SmallPokemon) => (
 
-            <PokemonCards pokemon={ pokemon }  />
+            <PokemonCards key={pokemon.id} pokemon={ pokemon }  />
 
             ))
         }
